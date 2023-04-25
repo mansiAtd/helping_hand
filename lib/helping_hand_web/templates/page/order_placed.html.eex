@@ -1,0 +1,18 @@
+<section class="order_placed_section">
+
+
+<%= form_for @conn, Routes.page_path(@conn, :restaurants), [as: :restaurants], fn f -> %>
+
+
+ <h2 class="order placed" style="text-align:center;">
+    <img src="images/order_place_icon.png" alt="Order Placed"/>
+    <span style="display:block;"> ORDER CONFIRMATION </span>
+ </h2>
+ <p  style="text-align:center;"> Order has been placed sucessfully and restaurants will deliver your order within one hour.
+   <br><a href="/restaurants/<%= @uuids[:ngo_uuid] %>">Back to Home Page </a>
+</p>
+
+
+<% end %>
+</div>
+</section>

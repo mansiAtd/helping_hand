@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="472295203794-jqpe8657g9i3f8dof4mnjqn0557vfjr1.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <body>
+<section class="loginSection" style="background:url('images/bg.jpg') no-repeat">
+
+<div class="formContainer">
+<%= form_for @conn, Routes.page_path(@conn, :restaurants), [as: :restaurants], fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+    </div>
+  <% end %>
+<%= button "Google Sign In", to: Routes.auth_path(@conn, :request, "google"), method: "get" %>
+  <label>
+    User Name:
+  </label>
+  <input autofocus  id="username" name="username" type="text" aria-required="true" placeholder="Enter username ">
+
+  <label>
+    Password:
+  </label>
+  <input autofocus  id="password" name="password" type="password" aria-required="true" placeholder="Enter password ">
+
+
+            </table>
+          </td></tr>  <tr><td>
+            <table class="footer">
+                <td class="text-center -notify">
+                   <%= submit "Login", class: "button -primary" %>
+                </td>
+
+              </tr>
+            </table>
+
+
+
+
+
+
+  <%= if Map.has_key?(@conn.assigns, :search_error)  do %>
+        <div class=" error">
+          <%=  @search_error %>
+        </div>
+  <%end%>
+<% end %>
+<a class="button" role="button" href="/signup" > New User SignUp</a>
+</div>
+</section>
+</html>

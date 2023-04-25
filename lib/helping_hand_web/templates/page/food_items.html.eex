@@ -1,0 +1,33 @@
+  <section class="sectionClass">
+  <div class="availableRestaurant">
+<h2>Available Food Items in    <span> <%= Enum.map(@food_items, & &1.restaurant_name) |> List.first() %> </span></h2>
+  <div class="restaurantList">
+    <div class="restaurantBlock">
+      <%= for food_items <- @food_items  do %>
+          <table class="table-wrapper">
+            <tr><td>
+            <table class="content">
+              <tr>
+                <td class="label-text"> <%= food_items.item %> </td>
+                <td class="label-info"><%= food_items.quantity %></td>
+              </tr>
+      <% end %>
+            </table>
+          </td></tr>  <tr><td>
+            <table class="footer">
+                <td class="text-center -notify">
+                  <a class="button" role="button" href="/order_place/<%= Enum.map(@food_items, & &1.restaurant_uuid) |> List.first() %>/<%= Enum.map(@food_items, & &1.ngo_uuid) |> List.first() %>">
+                   Place Order</a>
+
+                </td>
+                <td class="text-center -notify">
+                  <a class="button" role="button" href="/restaurants/<%= Enum.map(@food_items, & &1.ngo_uuid) |> List.first() %>">
+                   Go Back</a>
+                </td>
+              </tr>
+            </table>
+          </table>
+  </td></tr>
+  </div>
+</div>
+</section>

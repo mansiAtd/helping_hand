@@ -1,0 +1,16 @@
+Hi <%= @details[:restaurant_name] %>!
+
+
+An order has been placed by <%= @details[:ngo_name] %>. Take a look below for the order details you'll need.
+
+
+Food Details
+
+<%= for items <- @details[:food_items]  do %>
+<%= items %>
+<% end %>
+
+
+Thank you,
+The Helping Hand Team
+support@helpinghand.com

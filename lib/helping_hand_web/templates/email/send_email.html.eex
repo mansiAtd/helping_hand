@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" /><!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /><!--<![endif]-->
+    <style type="text/css">
+      body{
+        font-family: arial;
+        font-size: 14px;
+        color:#202124;
+        letter-spacing: .3px;
+      }
+      table{width:100%;}
+      td{padding:0;vertical-align: top;}
+      .text-center{
+        text-align: center;
+      }
+      .bodywrapper{
+        width:100%;
+        background-color:#f2f4f5;
+        border:none;
+        padding:30px;
+      }
+      .table-wrapper{
+        background: #fff;
+        width:535px;
+        margin:auto;
+        margin-top:15px;
+      }
+      .header{
+        padding:20px 35px;
+        border-bottom: 1px solid #f4f3f6;
+      }
+      .header .-person{
+        font-size:24px;
+        font-weight: bold;
+        padding:10px 0;
+      }
+      .header .-info{
+        font-size:16px;
+        padding:10px 0;
+      }
+      .header .button-row{
+        padding-top:2opx;
+      }
+      .header .button{
+        box-shadow: 0 2px 2px 0 rgba(87, 81, 149, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+        background-color: #575195;
+        padding:10px 16px;
+        color:#fff;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 16px;
+        display: inline-block;
+        text-decoration: none;
+      }
+      .content{
+        padding:20px 35px;
+        border-bottom: 1px solid #f4f3f6;
+        width:100%;
+      }
+      .content .-title{
+        font-size:18px;
+        font-weight: bold;
+        padding:0 0 12px 0;
+      }
+      .content .label-text{
+        font-size:16px;
+        font-weight: bold;
+        width:160px;
+        padding:5px 5px 5px 0;
+      }
+      .content .label-info{
+        font-size:16px;
+        font-weight: normal;
+        padding:5px 0px 5px 5px;
+      }
+      .footer{
+        padding:20px 35px;
+        width:100%;
+      }
+      .footer .-notify{
+        font-size:14px;
+        font-style: italic;
+      }
+      .footer .-notify .link{
+        color:#575195;
+        font-style: normal;
+      }
+    </style>
+    <!--user entered Head Start-->
+
+     <!--End Head user entered-->
+  </head>
+  <body>
+    <table class="bodywrapper"><tr><td>
+          <table class="pre-header">
+            <tr>
+              <td class="text-center">
+                <%= Phoenix.View.render HelpingHandWeb.EmailView,
+                  "email_logo.html",[] %>
+              </td>
+            </tr>
+          </table>
+          <table class="table-wrapper"><tr><td>
+            <table class="header">
+              <tr>
+                <td class="text-center -person">
+                   <p> Hi! <%= @details[:restaurant_name] %>! </p>
+
+
+                </td>
+            </tr>
+            <tr>
+              <td class="text-center -info">
+                   An order has been placed by <%= @details[:ngo_name] %>. Take a look below for the order details you'll need.
+              </td>
+            </tr>
+            </table>
+            <table class="content">
+              <tr>
+                <td class="text-center -title" colspan="2">
+                    Food Details
+                </td>
+              </tr>
+              <tr>
+                <%= for items <- @details[:food_items]  do %>
+                <td class="label-info"> <%= items %> </td>
+                <% end %>
+              </tr>
+            </table>
+            <table class="footer">
+                <td class="text-center -notify">
+
+
+                </td>
+              </tr>
+            </table>
+          </table>
+        </table>
+      </body>
+</html>

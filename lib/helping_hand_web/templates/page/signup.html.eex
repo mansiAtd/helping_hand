@@ -1,0 +1,64 @@
+<html lang="en">
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="472295203794-jqpe8657g9i3f8dof4mnjqn0557vfjr1.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <body>
+<section class="loginSection" style="background:url('images/bg.jpg') no-repeat">
+
+<div class="formContainer">
+<%= form_for @conn, Routes.page_path(@conn, :sign_up), [as: :sign_up], fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+    </div>
+  <% end %>
+
+  <label>
+    NGO:
+  </label>
+  <input autofocus  id="organization" name="ngo" type="text" aria-required="true" placeholder="Enter organization">
+
+  <label>
+    Address:
+  </label>
+  <input autofocus  id="address" name="address" type="text" aria-required="true" placeholder="Street Address">
+
+  <label>
+    Contact No:
+  </label>
+  <input autofocus  id="contact" name="contact" type="text" aria-required="true" placeholder="ex: 9876076523">
+
+  <label>
+    Email:
+  </label>
+  <input autofocus  id="email"  name="email" type="text" aria-required="true" placeholder="ex: abc@example.com">
+  <label>
+    Password:
+  </label>
+  <input autofocus  id="password" name="password" type="password" aria-required="true" placeholder="Enter password ">
+
+
+
+  <%= submit "Sign Up", class: "button -primary" %>
+
+
+<% end %>
+</div>
+</section>
+</body>
+</html>
+<!--
+<script type="text/javascript">
+function validate() {
+ var name = document.getElementById("username")
+ alert(document.getElementById("username")
+ var password = document.getElementById("username")
+ if(name.length == 0 || password.length < 8){
+   alert("Please entre valid name and password")
+ }
+
+}
+</script> -->

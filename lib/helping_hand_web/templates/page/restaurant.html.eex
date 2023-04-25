@@ -1,0 +1,23 @@
+<section class="sectionClass">
+<h2>Our Partner Restaurants</h2>
+<%= if @conn.assigns[:user] do %>
+<%= button("Logout", to: "/signout", method: "get", class: "btn")%>
+<% else %>
+<%= button("Logout", to: "/", method: "get", class: "btn")%>
+<% end %>
+
+  <div class="restaurantList">
+    <%= for restaurant <- @restaurants  do %>
+      <div class="restaurantBlock">
+        <div class="restaurantImg"></div>
+        <div class="restaurantContent">
+          <h3><a href="/food_items_list/<%= restaurant.restaurant_uuid %>/<%= restaurant.ngo_uuid %>"><%= restaurant.restaurant_name %></a></h3>
+          <p><i><%= restaurant.restaurant_address%></i></p>
+          <small><%= restaurant.restaurant_contact_no%></small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</section>
+</body>
